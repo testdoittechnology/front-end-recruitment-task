@@ -5,7 +5,7 @@ import { withStyles, Grid, Typography } from '@material-ui/core'
 const style = theme => ({
 	root: {
 		width: 1024,
-		padding: theme.spacing.unit * 2,
+		padding: theme.spacing(2),
 		margin: '0 auto',
 	},
 	title: {
@@ -19,6 +19,7 @@ class Workspace extends React.PureComponent {
 		const { children, title, classes } = this.props;
 		return (
 			<Grid
+				container
 				direction='column'
 				className={classes.root}
 			>
