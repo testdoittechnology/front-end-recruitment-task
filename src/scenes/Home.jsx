@@ -1,9 +1,9 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core'
-import Button from '../components/Button';
 import Tr from 'libs/Translations'
 import Workspace from '../components/Workspace';
-import TextInput from '../components/TextInput';
+import PersonalDataForm from './components/PersonalDataForm';
+import Divider from '../components/Divider';
 
 const style = theme => ({
 })
@@ -13,8 +13,8 @@ class Home extends React.PureComponent {
 	render() {
 		return (
 			<Workspace title={Tr('home_title')}>
-				<Button>Hello</Button>
-				<TextInput id='test' label='TEST'/>
+				<Divider title={Tr('personal_data')} />
+				<PersonalDataForm />
 			</Workspace>
 		)
 	}
