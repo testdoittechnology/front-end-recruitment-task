@@ -4,7 +4,11 @@ import { withStyles, Divider as DividerUI, Typography } from '@material-ui/core'
 
 const style = theme => ({
 	root: {
-		// marginBottom: theme.spacing(2)
+		margin: `${theme.spacing(2)}px 0`
+	},
+	divider: {
+		backgroundColor: theme.palette.primary.light,
+		height: 2
 	}
 })
 
@@ -17,7 +21,7 @@ class Divider extends React.PureComponent {
 				<Typography variant='h4'>
 					{title}
 				</Typography>
-				<DividerUI />
+				<DividerUI className={classes.divider} />
 			</div>
 		)
 	}

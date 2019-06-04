@@ -14,6 +14,9 @@ export const TextInputType = {
 }
 
 const style = theme => ({
+	root: {
+		marginBottom: theme.spacing(1)
+	}
 })
 
 const mailRegex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -137,11 +140,12 @@ class TextInput extends React.PureComponent {
 
 	render() {
 		const { props, state } = this;
+		const { classes } = this.props;
 		const inputProps = {
 			fullWidth: true,
 			id: props.id,
 			label: props.label,
-			className: props.className,
+			className: `${classes.root} ${props.className}`,
 			value: state.value,
 			onChange: this.handleChange,
 			required: props.required,
@@ -188,7 +192,7 @@ TextInput.defaultProps = {
 	required: false,
 	type: TextInputType.NOT_EMPTY,
 	limit: 255,
-	unlimited: false,
+	unlimited: true,
 	multiline: false,
 	base: false,
 	noValid: false,

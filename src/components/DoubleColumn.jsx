@@ -1,7 +1,6 @@
 import React from 'react'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { withStyles, Grid } from '@material-ui/core'
-import PersonalDataInputs from './PersonalDataInputs';
 
 const style = theme => ({
 	item: {
@@ -9,10 +8,10 @@ const style = theme => ({
 	}
 })
 
-class PersonalDataForm extends React.PureComponent {
+class DoubleColumn extends React.PureComponent {
 
 	render() {
-		const { classes } = this.props;
+		const { classes, left, right } = this.props;
 
 		return (
 			<Grid
@@ -20,20 +19,20 @@ class PersonalDataForm extends React.PureComponent {
 				justify='space-between'
 			>
 				<Grid item className={classes.item}>
-					<PersonalDataInputs />
+					{left}
 				</Grid>
 				<Grid item className={classes.item}>
-					<div style={{ width: '100%', height: '100%', backgroundColor: 'red' }}>
-
-					</div>
+					{right}
 				</Grid>
 			</Grid>
 		)
 	}
 }
 
-PersonalDataForm.propTypes = {
+DoubleColumn.propTypes = {
+	left: PropTypes.func,
+	right: PropTypes.func,
 }
 
 
-export default withStyles(style)(PersonalDataForm)
+export default withStyles(style)(DoubleColumn)
