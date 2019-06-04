@@ -6,6 +6,7 @@ import PersonalDataForm from './components/PersonalDataForm/PersonalDataForm';
 import Divider from '../components/Divider';
 import EmploymentForm from './components/EmploymentForm/EmploymentForm';
 import EducationForm from './components/EducationForm/EducationForm';
+import SkillsForm from './components/SkillsForm/SkillsForm';
 
 const style = theme => ({
 })
@@ -21,6 +22,8 @@ class Home extends React.PureComponent {
 				<EmploymentForm />
 				<Divider title={Tr('education_history')} />
 				<EducationForm />
+				<Divider title={Tr('skills')} />
+				<SkillsForm />
 			</Workspace>
 		)
 	}

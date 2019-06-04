@@ -19,7 +19,8 @@ const _dict = {
 	phone: 'Numer telefonu',
 	study_field: 'Kierunek studiow',
 	study_level: 'Poziom studiów',
-	skills: 'Umiejętnosci',
+	skill_name: 'Nazwa umiejętności',
+	skills: 'Umiejętności',
 }
 
 export default (key) => {

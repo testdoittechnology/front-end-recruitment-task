@@ -30,8 +30,8 @@ class DoubleColumn extends React.PureComponent {
 }
 
 DoubleColumn.propTypes = {
-	left: PropTypes.func,
-	right: PropTypes.func,
+	left: PropTypes.any,
+	right: PropTypes.any,
 }
 
 
