@@ -2,7 +2,7 @@ import React from 'react'
 //import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import DoubleColumn from '../../../components/DoubleColumn';
-import TextInput from '../../../components/TextInput';
+import TextInput, { TextInputType } from '../../../components/TextInput';
 import CreateInputs, { CreateInputsItem } from '../../../libs/CreateInputs';
 import Tr from 'libs/Translations'
 
@@ -21,8 +21,8 @@ class EmploymentForm extends React.PureComponent {
 						CreateInputsItem('pageAddress', 'page_address')
 					])}
 					right={CreateInputs([
-						CreateInputsItem('companyName', 'employment_date_begin'),
-						CreateInputsItem('companyPosition', 'employment_date_end')
+						CreateInputsItem('companyName', 'employment_date_begin', TextInputType.DATE),
+						CreateInputsItem('companyPosition', 'employment_date_end', TextInputType.DATE)
 					])}
 				/>
 				<TextInput

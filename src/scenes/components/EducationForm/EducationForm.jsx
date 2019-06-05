@@ -3,6 +3,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core'
 import DoubleColumn from '../../../components/DoubleColumn';
 import CreateInputs, { CreateInputsItem } from '../../../libs/CreateInputs';
+import { TextInputType } from '../../../components/TextInput';
 
 const style = theme => ({
 })
@@ -18,8 +19,8 @@ class EducationForm extends React.PureComponent {
 					CreateInputsItem('studyLevel', 'study_level')
 				])}
 				right={CreateInputs([
-					CreateInputsItem('studyDateBegin', 'date_begin'),
-					CreateInputsItem('studyDateEnd', 'date_end')
+					CreateInputsItem('studyDateBegin', 'date_begin', TextInputType.DATE),
+					CreateInputsItem('studyDateEnd', 'date_end', TextInputType.DATE)
 				])}
 			/>
 		)

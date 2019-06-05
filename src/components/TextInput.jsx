@@ -11,6 +11,7 @@ export const TextInputType = {
 	PASSWORD: 3,
 	NOT_EMPTY: 4,
 	NUMBER_POSITIVE: 5,
+	DATE: 6
 }
 
 const style = theme => ({
@@ -108,6 +109,7 @@ class TextInput extends React.PureComponent {
 			// eslint-disable-next-line
 			case TextInputType.PASSWORD:
 			case TextInputType.NOT_EMPTY:
+			case TextInputType.DATE:
 			case TextInputType.NUMBER:
 				const isEmpty = value.length === 0 || !value.trim()
 				this.setValid(!isEmpty && valid);
@@ -133,6 +135,7 @@ class TextInput extends React.PureComponent {
 			case TextInputType.PASSWORD: return 'password';
 			case TextInputType.NUMBER: return 'number';
 			case TextInputType.EMAIL: return 'email';
+			case TextInputType.DATE: return 'date';
 			case TextInputType.TEXT:
 			default: return 'text'
 		}
@@ -158,6 +161,9 @@ class TextInput extends React.PureComponent {
 				endAdornment: props.endAdornment
 			},
 			onKeyUp: props.onKeyUp,
+			InputLabelProps:{
+				shrink: props.shrink,
+			}
 		}
 
 		return React.createElement(
@@ -186,6 +192,7 @@ TextInput.propTypes = {
 		PropTypes.number,
 	]),
 	noValid: PropTypes.bool,
+	shrink: PropTypes.bool,
 }
 
 TextInput.defaultProps = {
@@ -196,6 +203,7 @@ TextInput.defaultProps = {
 	multiline: false,
 	base: false,
 	noValid: false,
+	shrink: false,
 }
 
 const mapStateToProps = (state) => ({
