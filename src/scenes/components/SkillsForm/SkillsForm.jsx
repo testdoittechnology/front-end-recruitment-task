@@ -16,7 +16,7 @@ class SkillsForm extends React.PureComponent {
 				left={CreateInputs([
 					CreateInputsItem('skillName', 'skill_name'),
 				])}
-				right={<Stars />}
+				right={<Stars id='skillValue' />}
 			/>
 		)
 	}

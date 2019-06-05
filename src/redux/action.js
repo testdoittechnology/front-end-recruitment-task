@@ -48,3 +48,10 @@ export function setInputClearFunc(id, func) {
 		}
 	}
 }
+
+export function setStoreValue(id,value) {
+	return {
+		type: 'SET_STORE_VALUE',
+		payload: { id, value }
+	}
+}
