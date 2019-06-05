@@ -55,3 +55,12 @@ export function setStoreValue(id,value) {
 		payload: { id, value }
 	}
 }
+
+export function setInputGroupValue(group, id, value) {
+	return {
+		type: 'SET_INPUT_GROUP_VALUE',
+		payload: {
+			id, value, group
+		}
+	}
+}

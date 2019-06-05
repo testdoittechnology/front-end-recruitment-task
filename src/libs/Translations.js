@@ -24,6 +24,7 @@ const _dict = {
 	study_level: 'Poziom studiów',
 	skill_name: 'Nazwa umiejętności',
 	skills: 'Umiejętności',
+	checkBox_label: 'Usuń datę zakończenia',
 }
 
 export default (key) => {
