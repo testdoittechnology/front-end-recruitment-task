@@ -7,6 +7,8 @@ import CreateInputs, { CreateInputsItem } from '../../../libs/CreateInputs';
 import Tr from 'libs/Translations'
 import Checkbox from '../../../components/Checkbox';
 import { connect } from 'react-redux'
+import ButtonRow, { CreateButtonItem } from '../../../components/ButtonRow';
+import EmploymentService from '../../../services/EmploymentService';
 
 const style = theme => ({
 })
@@ -19,18 +21,38 @@ class EmploymentForm extends React.PureComponent {
 		if (!this.props.input[this.createId('employmentCheckbox')]) {
 			return (
 				CreateInputs([
-					CreateInputsItem(this.createId('companyName'), 'employment_date_begin', TextInputType.DATE),
-					CreateInputsItem(this.createId('companyPosition'), 'employment_date_end', TextInputType.DATE)
+					CreateInputsItem(this.createId('employmentDateBegin'), 'employment_date_begin', TextInputType.DATE),
+					CreateInputsItem(this.createId('employmentDateEnd'), 'employment_date_end', TextInputType.DATE)
 				])
 			)
 		} else {
 			return (
 				CreateInputs([
-					CreateInputsItem(this.createId('companyName'), 'employment_date_begin', TextInputType.DATE),
+					CreateInputsItem(this.createId('employmentDateBegin'), 'employment_date_begin', TextInputType.DATE),
 				])
 			)
 		}
 	}
+
+	get buttons(){
+		if (this.props.isSingle){
+			return [CreateButtonItem('add_new', this.handleAddNew)]
+		}
+		let items = [CreateButtonItem('delete', this.handleDeleteClick)]
+		if(this.props.isLast){
+			items.push(CreateButtonItem('add_new', this.handleAddNew))
+		}
+		return items;
+	}
+
+	handleAddNew = () => {
+		EmploymentService.addNew();
+	}
+
+	handleDeleteClick = () => {
+		EmploymentService.delete(this.props.id);
+	}
+
 
 	render() {
 		return (
@@ -57,6 +79,9 @@ class EmploymentForm extends React.PureComponent {
 					label={Tr('description')}
 					multiline
 				/>
+				<ButtonRow
+					buttons={this.buttons}
+				/>
 			</div>
 		)
 	}
@@ -64,6 +89,8 @@ class EmploymentForm extends React.PureComponent {
 
 EmploymentForm.propTypes = {
 	id: PropTypes.string,
+	isLast: PropTypes.bool,
+	isSingle: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
@@ -73,5 +100,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
 })
 
+EmploymentForm.defaultProps = {
+	isLast: false,
+	isSingle: false,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(style)(EmploymentForm))

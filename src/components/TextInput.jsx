@@ -51,6 +51,11 @@ class TextInput extends React.PureComponent {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
+		const { id } = this.props;
+		if (prevProps.input[id] !== this.props.input[id]){
+			console.log(prevProps.input[id], this.props.input[id])
+			this.setValue(this.props.input[id] ? this.props.input[id] : '')
+		}
 		if (prevProps.defaultValue !== this.props.defaultValue) {
 			this.init();
 		}
@@ -203,10 +208,12 @@ TextInput.defaultProps = {
 	multiline: false,
 	base: false,
 	noValid: false,
+	input: {}
 }
 
 const mapStateToProps = (state) => ({
 	errorRedux: state.validation.error,
+	input: state.input,
 })
 
 const mapDispatchToProps = dispatch => ({

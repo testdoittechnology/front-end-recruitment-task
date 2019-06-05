@@ -1,11 +1,13 @@
 
 
 const _dict = {
+	add_new: 'Dodaj nowy',
 	company_name: 'Nazwa firmy',
 	company_position: 'Pozycja w firmie',
 	choose_photo: 'Wybierz zdjęcie',
 	date_begin: 'Data rozpoczęcia',
 	date_end: 'Data zakończenia',
+	delete: 'Usuń',
 	description: 'Opis',
 	education_history: 'Historia edukacji',
 	email: 'Email',
