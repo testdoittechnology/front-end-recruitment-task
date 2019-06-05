@@ -5,6 +5,7 @@ import DoubleColumn from '../../../components/DoubleColumn';
 import TextInput, { TextInputType } from '../../../components/TextInput';
 import CreateInputs, { CreateInputsItem } from '../../../libs/CreateInputs';
 import Tr from 'libs/Translations'
+import ButtonRow, { CreateButtonItem } from '../../../components/ButtonRow';
 
 const style = theme => ({
 })
@@ -12,6 +13,22 @@ const style = theme => ({
 class EmploymentForm extends React.PureComponent {
 
 	createId = (id) => `${id}_${this.props.id}`
+
+	get buttons(){
+		let items = [CreateButtonItem('delete', this.handleDeleteClick)]
+		if(this.props.isLast){
+			items.push(CreateButtonItem('add_new', this.handleAddNew))
+		}
+		return items;
+	}
+
+	handleAddNew = () => {
+
+	}
+
+	handleDeleteClick = () => {
+
+	}
 
 	render() {
 		return (
@@ -32,6 +49,9 @@ class EmploymentForm extends React.PureComponent {
 					label={Tr('description')}
 					multiline
 				/>
+				<ButtonRow
+					buttons={this.buttons}
+				/>
 			</div>
 		)
 	}
@@ -39,7 +59,11 @@ class EmploymentForm extends React.PureComponent {
 
 EmploymentForm.propTypes = {
 	id: PropTypes.string,
+	isLast: PropTypes.bool,
 }
 
+EmploymentForm.defaultProps = {
+	isLast: false,
+}
 
 export default withStyles(style)(EmploymentForm)

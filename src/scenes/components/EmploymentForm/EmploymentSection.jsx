@@ -19,10 +19,14 @@ class EmploymentSection extends React.PureComponent {
 
 	createForms = () => {
 		const { size } = this.props;
-		return new Array(size).fill(0).map( (x,i) => {
+		return new Array(size).fill(0).map((x, i) => {
 			return [
-				i !== 0 ? <Divider key={'d'+i} dotted/> : '',
-				<EmploymentForm key={i} id={''+i} />
+				i !== 0 ? <Divider key={'d' + i} dotted /> : '',
+				<EmploymentForm
+					key={i}
+					id={'' + i}
+					isLast={i >= size - 1}
+				/>
 			]
 		})
 	}
@@ -50,7 +54,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	setStore: (id, value) => dispatch(setStoreValue(id,value))
+	setStore: (id, value) => dispatch(setStoreValue(id, value))
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(withStyles(style)(EmploymentSection))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(style)(EmploymentSection))

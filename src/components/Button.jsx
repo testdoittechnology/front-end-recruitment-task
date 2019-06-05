@@ -8,13 +8,13 @@ const style = theme => ({
 class Button extends React.PureComponent {
 
 	render() {
-		const { children, onClick } = this.props;
+		const { children, onClick, fullWidth } = this.props;
 		return (
 			<ButtonUI
 				onClick={onClick}
 				variant='contained'
 				color='primary'
-				fullWidth
+				fullWidth={fullWidth}
 			>
 				{children}
 			</ButtonUI>
@@ -25,6 +25,11 @@ class Button extends React.PureComponent {
 Button.propTypes = {
 	children: PropTypes.any,
 	onClick: PropTypes.func,
+	fullWidth: PropTypes.bool,
+}
+
+Button.defaultProps = {
+	fullWidth: false,
 }
 
 

@@ -19,6 +19,7 @@ class PictureForm extends React.PureComponent {
 						id='photo'
 						buttonProps={{
 							children: Tr('choose_photo'),
+							fullWidth: true,
 						}}
 						accept='image/*'
 					/>
