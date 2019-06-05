@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core'
 import DoubleColumn from '../../../components/DoubleColumn';
 import CreateInputs, { CreateInputsItem } from '../../../libs/CreateInputs';
 import { TextInputType } from '../../../components/TextInput';
+import PictureForm from './PictureForm';
 
 const style = theme => ({
 })
@@ -17,7 +18,7 @@ class PersonalDataForm extends React.PureComponent {
 					CreateInputsItem('email', 'email', TextInputType.EMAIL),
 					CreateInputsItem('phone', 'phone', TextInputType.NUMBER_POSITIVE)
 				])}
-				right={<div />}
+				right={<PictureForm />}
 			/>
 		)
 	}

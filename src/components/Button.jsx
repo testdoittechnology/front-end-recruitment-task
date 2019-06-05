@@ -14,6 +14,7 @@ class Button extends React.PureComponent {
 				onClick={onClick}
 				variant='contained'
 				color='primary'
+				fullWidth
 			>
 				{children}
 			</ButtonUI>

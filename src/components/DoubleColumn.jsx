@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { withStyles, Grid } from '@material-ui/core'
 
 const style = theme => ({
+	root: {
+		height: '100%'
+	},
 	item: {
 		width: `calc(50% - ${theme.spacing(2)}px)`
 	}
@@ -15,6 +18,7 @@ class DoubleColumn extends React.PureComponent {
 
 		return (
 			<Grid
+				className={classes.root}
 				container
 				justify='space-between'
 			>

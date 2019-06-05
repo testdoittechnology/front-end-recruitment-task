@@ -3,6 +3,7 @@
 const _dict = {
 	company_name: 'Nazwa firmy',
 	company_position: 'Pozycja w firmie',
+	choose_photo: 'Wybierz zdjęcie',
 	date_begin: 'Data rozpoczęcia',
 	date_end: 'Data zakończenia',
 	description: 'Opis',
