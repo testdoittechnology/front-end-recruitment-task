@@ -6,7 +6,7 @@ import TextInput, { TextInputType } from '../components/TextInput';
 
 export const CreateInputsItem = (id, labelTr, type) => ({ id, labelTr, type });
 export const CreateInputs = (list) => {
-	return list.map(({ id, labelTr, type }) => {
+	return list.map(({ id, labelTr, type}) => {
 		const isDate = type === TextInputType.DATE
 		return (
 			<TextInput
@@ -26,7 +26,7 @@ CreateInputs.propTypes = {
 			id: PropTypes.string.isRequired,
 			labelTr: PropTypes.string,
 			type: PropTypes.number,
-		})
+		}),
 	),
 }
 
