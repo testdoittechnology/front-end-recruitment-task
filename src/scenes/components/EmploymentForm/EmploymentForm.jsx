@@ -18,20 +18,11 @@ class EmploymentForm extends React.PureComponent {
 	createId = (id) => `${id}_${this.props.id}`
 
 	CreateInputsTab = () => {
+		let items = [CreateInputsItem(this.createId('employmentDateBegin'), 'employment_date_begin', TextInputType.DATE)]
 		if (!this.props.input[this.createId('employmentCheckbox')]) {
-			return (
-				CreateInputs([
-					CreateInputsItem(this.createId('employmentDateBegin'), 'employment_date_begin', TextInputType.DATE),
-					CreateInputsItem(this.createId('employmentDateEnd'), 'employment_date_end', TextInputType.DATE)
-				])
-			)
-		} else {
-			return (
-				CreateInputs([
-					CreateInputsItem(this.createId('employmentDateBegin'), 'employment_date_begin', TextInputType.DATE),
-				])
-			)
+			items.push(CreateInputsItem(this.createId('employmentDateEnd'), 'employment_date_end', TextInputType.DATE))
 		}
+		return CreateInputs(items)
 	}
 
 	get buttons(){

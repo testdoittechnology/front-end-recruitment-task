@@ -35,7 +35,7 @@ class EducationSection extends React.PureComponent {
 	render() {
 		return (
 			<div>
-				<Divider title={Tr('employment_history')} />
+				<Divider title={Tr('education_history')} />
 				{this.createForms()}
 			</div>
 		)

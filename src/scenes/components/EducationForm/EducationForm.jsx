@@ -8,6 +8,7 @@ import ButtonRow, { CreateButtonItem } from '../../../components/ButtonRow';
 import Checkbox from '../../../components/Checkbox';
 import { connect } from 'react-redux'
 import Tr from 'libs/Translations'
+import EducationService from '../../../services/EducationService';
 
 const style = theme => ({
 })
@@ -28,26 +29,19 @@ class EducationForm extends React.PureComponent {
 	}
 
 	handleAddNew = () => {
+		EducationService.addNew()
 	}
 
 	handleDeleteClick = () => {
+		EducationService.delete(this.props.id)
 	}
 
 	CreateInputsTab = () => {
-		if (!this.props.input['educationCheckbox']) {
-			return (
-				CreateInputs([
-					CreateInputsItem('studyDateBegin', 'date_begin', TextInputType.DATE),
-					CreateInputsItem('studyDateEnd', 'date_end', TextInputType.DATE)
-				])
-			)
-		} else {
-			return (
-				CreateInputs([
-					CreateInputsItem('studyDateBegin', 'date_begin', TextInputType.DATE),
-				])
-			)
+		let items = [CreateInputsItem(this.createId('studyDateBegin'), 'date_begin', TextInputType.DATE)]
+		if (!this.props.input[this.createId('educationCheckbox')]) {
+			items.push(CreateInputsItem(this.createId('studyDateEnd'), 'date_end', TextInputType.DATE))
 		}
+		return CreateInputs(items)
 	}
 
 	render() {
@@ -55,14 +49,14 @@ class EducationForm extends React.PureComponent {
 			<div>
 				<DoubleColumn
 					left={CreateInputs([
-						CreateInputsItem('institutionName', 'institution_name'),
-						CreateInputsItem('studyField', 'study_field'),
-						CreateInputsItem('studyLevel', 'study_level')
+						CreateInputsItem(this.createId('institutionName'), 'institution_name'),
+						CreateInputsItem(this.createId('studyField'), 'study_field'),
+						CreateInputsItem(this.createId('studyLevel'), 'study_level')
 					])}
 					right={<div>
 						{this.CreateInputsTab()}
 						<Checkbox
-							id={'educationCheckbox'}
+							id={this.createId('educationCheckbox')}
 							label={Tr('checkBox_label')
 							}
 						/>

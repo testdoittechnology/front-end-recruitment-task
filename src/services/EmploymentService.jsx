@@ -1,7 +1,6 @@
-import reduxStore from '../redux/store'
-import { setStoreValue, setInputValue } from '../redux/action';
+import BaseService from './BaseService';
 
-class EmploymentService {
+class EmploymentService extends BaseService {
 
 	keys = [
 		'companyName',
@@ -13,35 +12,12 @@ class EmploymentService {
 		'employmentCheckbox',
 	]
 
-	delete = id => {
-		const { input, store } = reduxStore.getState();
-		const size = store.employmentFormSize;
-		
-		if( ''+(size - 1) > id ){
-			for(let i = parseInt(id); i < size; i++){
-				for(let key in this.keys){
-					let keyId = `${this.keys[key]}_${i}`
-					let keyIdNext = `${this.keys[key]}_${i+1}`
-					reduxStore.dispatch(setInputValue(
-						keyId,
-						input[keyIdNext]
-					))
-				}
-			}
-		}
-
-		reduxStore.dispatch(setStoreValue(
-			'employmentFormSize',
-			store.employmentFormSize - 1
-		))
+	delete(id) {
+		super.delete('employmentFormSize', id)
 	}
 
-	addNew = () => {
-		const { store } = reduxStore.getState();
-		reduxStore.dispatch(setStoreValue(
-			'employmentFormSize',
-			store.employmentFormSize + 1
-		))
+	addNew() {
+		super.addNew('employmentFormSize')
 	}
 
 
