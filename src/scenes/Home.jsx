@@ -4,9 +4,9 @@ import Tr from 'libs/Translations'
 import Workspace from '../components/Workspace';
 import PersonalDataForm from './components/PersonalDataForm/PersonalDataForm';
 import Divider from '../components/Divider';
-import EducationForm from './components/EducationForm/EducationForm';
 import SkillsForm from './components/SkillsForm/SkillsForm';
 import EmploymentSection from './components/EmploymentForm/EmploymentSection';
+import EducationSection from './components/EducationForm/EducationSection';
 
 const style = theme => ({
 })
@@ -21,8 +21,8 @@ class Home extends React.PureComponent {
 				
 				<EmploymentSection />
 
-				<Divider title={Tr('education_history')} />
-				<EducationForm />
+				<EducationSection />
+
 				<Divider title={Tr('skills')} />
 				<SkillsForm />
 			</Workspace>

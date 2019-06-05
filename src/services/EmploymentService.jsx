@@ -9,7 +9,8 @@ class EmploymentService {
 		'pageAddress',
 		'description',
 		'employmentDateBegin',
-		'employmentDateEnd'
+		'employmentDateEnd',
+		'employmentCheckbox',
 	]
 
 	delete = id => {

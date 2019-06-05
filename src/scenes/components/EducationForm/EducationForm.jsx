@@ -28,11 +28,9 @@ class EducationForm extends React.PureComponent {
 	}
 
 	handleAddNew = () => {
-		// EmploymentService.addNew();
 	}
 
 	handleDeleteClick = () => {
-		// EmploymentService.delete(this.props.id);
 	}
 
 	CreateInputsTab = () => {
