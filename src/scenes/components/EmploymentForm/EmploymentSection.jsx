@@ -26,6 +26,7 @@ class EmploymentSection extends React.PureComponent {
 					key={i}
 					id={'' + i}
 					isLast={i >= size - 1}
+					isSingle={ size === 1}
 				/>
 			]
 		})
@@ -46,7 +47,7 @@ EmploymentSection.propTypes = {
 }
 
 EmploymentSection.defaultProps = {
-	size: 3,
+	size: 1,
 }
 
 const mapStateToProps = (state) => ({

@@ -15,6 +15,9 @@ class EmploymentForm extends React.PureComponent {
 	createId = (id) => `${id}_${this.props.id}`
 
 	get buttons(){
+		if (this.props.isSingle){
+			return [CreateButtonItem('add_new', this.handleAddNew)]
+		}
 		let items = [CreateButtonItem('delete', this.handleDeleteClick)]
 		if(this.props.isLast){
 			items.push(CreateButtonItem('add_new', this.handleAddNew))
@@ -60,10 +63,12 @@ class EmploymentForm extends React.PureComponent {
 EmploymentForm.propTypes = {
 	id: PropTypes.string,
 	isLast: PropTypes.bool,
+	isSingle: PropTypes.bool,
 }
 
 EmploymentForm.defaultProps = {
 	isLast: false,
+	isSingle: false,
 }
 
 export default withStyles(style)(EmploymentForm)
