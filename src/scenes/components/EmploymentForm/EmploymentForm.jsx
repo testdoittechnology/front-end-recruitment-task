@@ -6,6 +6,7 @@ import TextInput, { TextInputType } from '../../../components/TextInput';
 import CreateInputs, { CreateInputsItem } from '../../../libs/CreateInputs';
 import Tr from 'libs/Translations'
 import ButtonRow, { CreateButtonItem } from '../../../components/ButtonRow';
+import EmploymentService from '../../../services/EmploymentService';
 
 const style = theme => ({
 })
@@ -26,12 +27,13 @@ class EmploymentForm extends React.PureComponent {
 	}
 
 	handleAddNew = () => {
-
+		EmploymentService.addNew();
 	}
 
 	handleDeleteClick = () => {
-
+		EmploymentService.delete(this.props.id);
 	}
+
 
 	render() {
 		return (
@@ -43,8 +45,8 @@ class EmploymentForm extends React.PureComponent {
 						CreateInputsItem(this.createId('pageAddress'), 'page_address')
 					])}
 					right={CreateInputs([
-						CreateInputsItem(this.createId('companyName'), 'employment_date_begin', TextInputType.DATE),
-						CreateInputsItem(this.createId('companyPosition'), 'employment_date_end', TextInputType.DATE)
+						CreateInputsItem(this.createId('employmentDateBegin'), 'employment_date_begin', TextInputType.DATE),
+						CreateInputsItem(this.createId('employmentDateEnd'), 'employment_date_end', TextInputType.DATE)
 					])}
 				/>
 				<TextInput
