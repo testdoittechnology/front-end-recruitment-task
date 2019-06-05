@@ -14,7 +14,7 @@ export const CreateInputs = (list) => {
 				id={id}
 				label={Tr(labelTr)}
 				type={type}
-				shrink={isDate}
+				shrink={isDate ? isDate : undefined}
 			/>
 		)
 	})

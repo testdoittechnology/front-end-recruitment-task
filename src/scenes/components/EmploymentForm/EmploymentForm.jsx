@@ -1,5 +1,5 @@
 import React from 'react'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import DoubleColumn from '../../../components/DoubleColumn';
 import TextInput, { TextInputType } from '../../../components/TextInput';
@@ -11,22 +11,24 @@ const style = theme => ({
 
 class EmploymentForm extends React.PureComponent {
 
+	createId = (id) => `${id}_${this.props.id}`
+
 	render() {
 		return (
 			<div>
 				<DoubleColumn
 					left={CreateInputs([
-						CreateInputsItem('companyName', 'company_name'),
-						CreateInputsItem('companyPosition', 'company_position'),
-						CreateInputsItem('pageAddress', 'page_address')
+						CreateInputsItem(this.createId('companyName'), 'company_name'),
+						CreateInputsItem(this.createId('companyPosition'), 'company_position'),
+						CreateInputsItem(this.createId('pageAddress'), 'page_address')
 					])}
 					right={CreateInputs([
-						CreateInputsItem('companyName', 'employment_date_begin', TextInputType.DATE),
-						CreateInputsItem('companyPosition', 'employment_date_end', TextInputType.DATE)
+						CreateInputsItem(this.createId('companyName'), 'employment_date_begin', TextInputType.DATE),
+						CreateInputsItem(this.createId('companyPosition'), 'employment_date_end', TextInputType.DATE)
 					])}
 				/>
 				<TextInput
-					id={'description'}
+					id={this.createId('description')}
 					label={Tr('description')}
 					multiline
 				/>
@@ -36,6 +38,7 @@ class EmploymentForm extends React.PureComponent {
 }
 
 EmploymentForm.propTypes = {
+	id: PropTypes.string,
 }
 
 

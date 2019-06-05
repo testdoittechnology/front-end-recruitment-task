@@ -203,7 +203,6 @@ TextInput.defaultProps = {
 	multiline: false,
 	base: false,
 	noValid: false,
-	shrink: false,
 }
 
 const mapStateToProps = (state) => ({
